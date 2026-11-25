@@ -1,0 +1,79 @@
+<groupbox id="zotmirror-pref-dirs"
+          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:html="http://www.w3.org/1999/xhtml">
+  <label><html:h2>Google Drive 目录设置（可直接粘贴文件夹链接或 Folder ID）</html:h2></label>
+  <html:div style="display:grid; grid-template-columns: 160px 1fr; gap: 8px; align-items: center; margin-top: 6px;">
+    <html:label for="gds-source-root">源目录（AUTH）：</html:label>
+    <html:input id="gds-source-root" type="text" placeholder="例如 https://drive.google.com/drive/folders/1AbC... 或直接填 ID" style="width:100%;" />
+
+    <html:span></html:span>
+    <html:div id="gds-source-id-preview" style="font-size: 11px; color: #555;"></html:div>
+
+    <html:label for="gds-target-root">输出根目录：</html:label>
+    <html:input id="gds-target-root" type="text" placeholder="例如 My Drive 下的 Zotero_By_Collection 文件夹链接或 ID" style="width:100%;" />
+
+    <html:span></html:span>
+    <html:div id="gds-target-id-preview" style="font-size: 11px; color: #555;"></html:div>
+  </html:div>
+</groupbox>
+
+<groupbox id="zotmirror-pref-opts"
+          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:html="http://www.w3.org/1999/xhtml">
+  <label><html:h2>同步选项</html:h2></label>
+  <vbox style="gap: 6px; margin-top: 6px;">
+    <checkbox id="gds-include-sub" label="同步时包含子分类（Include subcollections）" />
+    <checkbox id="gds-flatten-sub" label="将子分类平铺合并到同一个目标文件夹（不勾选则保留嵌套层级）" />
+    <checkbox id="gds-remove-stale" label="严格镜像：自动将云端对应文件夹中已移出分类的旧快捷方式移入回收站" />
+  </vbox>
+</groupbox>
+
+<groupbox id="zotmirror-pref-conn"
+          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:html="http://www.w3.org/1999/xhtml">
+  <label><html:h2>Google Drive 连接方式</html:h2></label>
+  <html:div style="display:flex; gap: 18px; margin: 8px 0;">
+    <html:label><html:input type="radio" name="gds-mode" id="gds-mode-gas" value="gas" /> 路线 A：Google Apps Script (GAS) Web App（推荐，免配置 OAuth）</html:label>
+    <html:label><html:input type="radio" name="gds-mode" id="gds-mode-oauth" value="oauth" /> 路线 B：Google Drive API v3 直连（OAuth 2.0）</html:label>
+  </html:div>
+
+  <html:div id="gds-panel-gas" style="display:grid; grid-template-columns: 160px 1fr; gap: 8px; align-items: center; margin-top: 8px;">
+    <html:label for="gds-gas-url">Web App URL：</html:label>
+    <html:input id="gds-gas-url" type="text" placeholder="https://script.google.com/macros/s/.../exec" style="width:100%;" />
+
+    <html:label for="gds-gas-secret">访问密钥（Secret）：</html:label>
+    <html:input id="gds-gas-secret" type="password" placeholder="与 Code.gs 中 SECRET_TOKEN 保持一致" style="width:100%;" />
+  </html:div>
+
+  <html:div id="gds-panel-oauth" style="display:none; grid-template-columns: 160px 1fr; gap: 8px; align-items: center; margin-top: 8px;">
+    <html:label for="gds-oauth-client-id">OAuth Client ID：</html:label>
+    <html:input id="gds-oauth-client-id" type="text" placeholder="xxxx.apps.googleusercontent.com" style="width:100%;" />
+
+    <html:label for="gds-oauth-client-secret">OAuth Client Secret：</html:label>
+    <html:input id="gds-oauth-client-secret" type="password" placeholder="GOCSPX-..." style="width:100%;" />
+
+    <html:label for="gds-oauth-refresh-token">Refresh Token：</html:label>
+    <html:div style="display:flex; gap: 8px; width:100%;">
+      <html:input id="gds-oauth-refresh-token" type="password" placeholder="点击右侧按钮通过浏览器自动获取" style="flex:1;" />
+      <html:button id="gds-btn-oauth-login" type="button">浏览器授权登录</html:button>
+    </html:div>
+  </html:div>
+
+  <html:div style="margin-top: 12px; display:flex; align-items:center; gap: 10px;">
+    <html:button id="gds-btn-test" type="button">测试连接</html:button>
+    <html:span id="gds-test-status" style="font-size: 12px;"></html:span>
+  </html:div>
+</groupbox>
+
+<groupbox id="zotmirror-pref-usage"
+          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:html="http://www.w3.org/1999/xhtml">
+  <label><html:h2>使用方法</html:h2></label>
+  <html:div style="font-size: 12px; line-height: 1.6; margin-top: 4px;">
+    1. 返回 Zotero 主界面，在左侧分类栏中<html:b>右键点击任意分类（Collection）</html:b> → 选择 <html:b>「ZotMirror：同步快捷方式到 Google Drive」</html:b>。<html:br/>
+    2. 或直接点击下方按钮，立即同步当前左侧已选中的分类：
+  </html:div>
+  <html:div style="margin-top: 8px;">
+    <html:button id="gds-btn-sync-now" type="button">立即同步当前选中的分类</html:button>
+  </html:div>
+</groupbox>

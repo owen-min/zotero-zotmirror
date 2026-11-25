@@ -1,0 +1,11 @@
+pref("extensions.zotmirror.mode", "gas");
+pref("extensions.zotmirror.sourceRoot", "");
+pref("extensions.zotmirror.targetRoot", "");
+pref("extensions.zotmirror.includeSubcollections", true);
+pref("extensions.zotmirror.flattenSubcollections", false);
+pref("extensions.zotmirror.removeStale", false);
+pref("extensions.zotmirror.gasUrl", "");
+pref("extensions.zotmirror.gasSecret", "");
+pref("extensions.zotmirror.oauthClientId", "");
+pref("extensions.zotmirror.oauthClientSecret", "");
+pref("extensions.zotmirror.oauthRefreshToken", "");

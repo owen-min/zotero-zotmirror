@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "ZotMirror",
+  "version": "1.0.0",
+  "description": "Mirror Zotero collections to Google Drive using native shortcuts (zero duplicate storage) for seamless Gemini & NotebookLM workflows.",
+  "author": "ZotMirror Contributors",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+  "applications": {
+    "zotero": {
+      "id": "zotmirror@zotero.local",
+      "update_url": "https://zotmirror.invalid/updates.json",
+      "strict_min_version": "7.0",
+      "strict_max_version": "10.99.99"
+    }
+  },
+  "browser_specific_settings": {
+    "zotero": {
+      "id": "zotmirror@zotero.local",
+      "update_url": "https://zotmirror.invalid/updates.json",
+      "strict_min_version": "7.0",
+      "strict_max_version": "10.99.99"
+    }
+  }
+}

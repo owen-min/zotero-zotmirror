@@ -1,0 +1,17 @@
+{
+  "name": "zotero-zotmirror",
+  "version": "1.0.0",
+  "description": "ZotMirror: Mirror Zotero collections to Google Drive using native shortcuts (zero duplicate storage).",
+  "scripts": {
+    "test": "node tests/sync.test.mjs",
+    "build": "python3 scripts/build_xpi.py"
+  },
+  "keywords": [
+    "zotero",
+    "zotero-plugin",
+    "google-drive",
+    "notebooklm",
+    "gemini"
+  ],
+  "license": "MIT"
+}
